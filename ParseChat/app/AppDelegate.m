@@ -31,7 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	[Parse setApplicationId:@"Az5UGI1aW3sdPpDgOGRj72SgpG4CkJFLVXfgA94U" clientKey:@"yOzGePANMNMooQN5wukzvtyDSxiOqAdkQl1dNMn4"];
+	[Parse setApplicationId:@"1Dhv6jgm1BAR74JiO7GCnLlngCyanAKPbAk7Bw28" clientKey:@"ChXZHOFkpkXimtVvvx1Lw0Wp9gxcj6D1aRdwoJbL"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[PFTwitterUtils initializeWithConsumerKey:@"kS83MvJltZwmfoWVoyE1R6xko" consumerSecret:@"YXSupp9hC2m1rugTfoSyqricST9214TwYapQErBcXlP1BrSfND"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------

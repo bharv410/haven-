@@ -55,7 +55,7 @@
 	self.title = @"Recent";
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self
-																						   action:@selector(actionCompose)];
+																						   action:@selector(goToMsAnderson)];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[self.tableView registerNib:[UINib nibWithNibName:@"RecentCell" bundle:nil] forCellReuseIdentifier:@"RecentCell"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -63,6 +63,7 @@
 	[self.refreshControl addTarget:self action:@selector(loadRecents) forControlEvents:UIControlEventValueChanged];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	recents = [[NSMutableArray alloc] init];
+    
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -76,6 +77,26 @@
 		[self loadRecents];
 	}
 	else LoginUser(self);
+}
+
+- (void)goToMsAnderson
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+{
+    
+    PFQuery *query2 = [PFQuery queryWithClassName:PF_USER_CLASS_NAME];
+    [query2 whereKey:PF_USER_FULLNAME_LOWER equalTo:@"ms. anderson"];
+    [query2 setLimit:1];
+    [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+         if (error == nil)
+         {
+             PFUser *msAnderson = objects.firstObject;
+             
+             [self didSelectSingleUser:msAnderson];
+             
+         }
+         else [ProgressHUD showError:@"Network error."];
+     }];
 }
 
 #pragma mark - Backend methods

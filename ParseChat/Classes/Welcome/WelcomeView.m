@@ -141,7 +141,7 @@
 - (void)requestFacebookPicture:(PFUser *)user UserData:(NSDictionary *)userData
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	NSString *link = [NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large", userData[@"id"]];
+	NSString *link = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", userData[@"id"]];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	SDWebImageManager *manager = [SDWebImageManager sharedManager];
 	[manager downloadImageWithURL:[NSURL URLWithString:link] options:0 progress:nil
