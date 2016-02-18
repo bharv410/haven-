@@ -15,6 +15,7 @@
 #import "GroupsView.h"
 #import "PeopleView.h"
 #import "SettingsView.h"
+#import "MainViewController.h"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @property (strong, nonatomic) RecentView *recentView;
+@property (strong, nonatomic) MainViewController *mainView;
 @property (strong, nonatomic) GroupsView *groupsView;
 @property (strong, nonatomic) PeopleView *peopleView;
 @property (strong, nonatomic) SettingsView *settingsView;

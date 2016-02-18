@@ -24,6 +24,7 @@
 #import "PeopleView.h"
 #import "SettingsView.h"
 #import "NavigationController.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
@@ -49,18 +50,21 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    self.mainView = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    
 	self.recentView = [[RecentView alloc] initWithNibName:@"RecentView" bundle:nil];
 	self.groupsView = [[GroupsView alloc] initWithNibName:@"GroupsView" bundle:nil];
 	self.peopleView = [[PeopleView alloc] initWithNibName:@"PeopleView" bundle:nil];
 	self.settingsView = [[SettingsView alloc] initWithNibName:@"SettingsView" bundle:nil];
 
-	NavigationController *navController1 = [[NavigationController alloc] initWithRootViewController:self.recentView];
+	NavigationController *navController0 = [[NavigationController alloc] initWithRootViewController:self.mainView];
+    NavigationController *navController1 = [[NavigationController alloc] initWithRootViewController:self.recentView];
 	NavigationController *navController2 = [[NavigationController alloc] initWithRootViewController:self.groupsView];
 	NavigationController *navController3 = [[NavigationController alloc] initWithRootViewController:self.peopleView];
 	NavigationController *navController4 = [[NavigationController alloc] initWithRootViewController:self.settingsView];
 
 	self.tabBarController = [[UITabBarController alloc] init];
-	self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController1, navController2, navController3, navController4, nil];
+	self.tabBarController.viewControllers = [NSArray arrayWithObjects:navController0, navController1, navController2, navController3, navController4, nil];
 	self.tabBarController.tabBar.translucent = NO;
 	self.tabBarController.selectedIndex = DEFAULT_TAB;
 
