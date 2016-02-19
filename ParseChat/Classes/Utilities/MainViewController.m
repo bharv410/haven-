@@ -28,12 +28,19 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    CGRect fullScreen = [[UIScreen mainScreen] bounds];
-    self.tabBarController.tabBar.hidden=YES;
-    [self setExtendedLayoutIncludesOpaqueBars:YES];
-    
-    [[self.tabBarController.view.subviews objectAtIndex:0]setFrame:fullScreen];
+    if ([PFUser currentUser] != nil)
+    {
+        
+        [[self navigationController] setNavigationBarHidden:YES animated:YES];
+        CGRect fullScreen = [[UIScreen mainScreen] bounds];
+        self.tabBarController.tabBar.hidden=YES;
+        [self setExtendedLayoutIncludesOpaqueBars:YES];
+        
+        [[self.tabBarController.view.subviews objectAtIndex:0]setFrame:fullScreen];
+        
+        
+    }
+    else LoginUser(self);
 }
 
 -(void) viewWillDisappear:(BOOL)animated
