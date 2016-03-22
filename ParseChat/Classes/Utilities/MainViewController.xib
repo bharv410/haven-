@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="YanoneKaffeesatz-Regular.ttf">
@@ -20,242 +21,291 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" userLabel="ScrollView">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haven" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsw-g5-Q9I">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="79"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFO-Zi-GeN">
-                    <rect key="frame" x="26" y="332" width="322" height="53"/>
-                    <color key="backgroundColor" red="0.85302809319999995" green="0.15430687779999999" blue="0.30350834339999999" alpha="1" colorSpace="calibratedRGB"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwi-ry-xTf">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haven" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sM7-55-GoQ">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="95" id="saf-aJ-cFL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="79"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="saf-aJ-cFL"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="saf-aJ-cFL"/>
+                                </mask>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W29-8R-ivV">
+                            <rect key="frame" x="26" y="332" width="322" height="53"/>
+                            <color key="backgroundColor" red="0.85302809319999995" green="0.15430687779999999" blue="0.30350834339999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="5Dh-Et-XGC"/>
+                                <constraint firstAttribute="height" constant="60" id="nbZ-aU-aWH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
+                            <state key="normal" title="Bully Alert">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="nbZ-aU-aWH"/>
+                                    <exclude reference="5Dh-Et-XGC"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="nbZ-aU-aWH"/>
+                                    <include reference="5Dh-Et-XGC"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="30" y="332.5" width="606" height="35"/>
+                            </variation>
+                            <connections>
+                                <action selector="clickedBullyAlert:" destination="-1" eventType="touchUpInside" id="y2w-EQ-pUn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8os-Id-csd">
+                            <rect key="frame" x="26" y="332" width="322" height="53"/>
+                            <color key="backgroundColor" red="0.12850480750000001" green="0.76889347789999996" blue="0.37209143589999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="XlA-mM-sWu"/>
+                                <constraint firstAttribute="height" constant="60" id="m1Z-dB-1qB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
+                            <state key="normal" title="I need to share">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="XlA-mM-sWu"/>
+                                    <exclude reference="m1Z-dB-1qB"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="XlA-mM-sWu"/>
+                                    <include reference="m1Z-dB-1qB"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="30" y="332.5" width="606" height="35"/>
+                            </variation>
+                            <connections>
+                                <action selector="clickedNeedToShare:" destination="-1" eventType="touchUpInside" id="paw-4V-RHS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-ce-f6z">
+                            <rect key="frame" x="26" y="332" width="322" height="53"/>
+                            <color key="backgroundColor" red="0.95697115379999997" green="0.92051148169999997" blue="0.070565344000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="Q0v-J0-i6d"/>
+                                <constraint firstAttribute="width" constant="250" id="xVc-oZ-BTK"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
+                            <state key="normal" title="Refer a friend">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Q0v-J0-i6d"/>
+                                    <exclude reference="xVc-oZ-BTK"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="Q0v-J0-i6d"/>
+                                    <include reference="xVc-oZ-BTK"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="30" y="332.5" width="606" height="35"/>
+                            </variation>
+                            <connections>
+                                <action selector="clickedReferA:" destination="-1" eventType="touchUpInside" id="jJA-kv-7cY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apB-pa-2fw">
+                            <rect key="frame" x="26" y="332" width="322" height="53"/>
+                            <color key="backgroundColor" red="0.14200394180000001" green="0.1970562293" blue="0.95697115379999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="SlH-KR-f0L"/>
+                                <constraint firstAttribute="width" constant="300" id="tg0-yE-Exk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
+                            <state key="normal" title="Message Teacher">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="SlH-KR-f0L"/>
+                                    <exclude reference="tg0-yE-Exk"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="SlH-KR-f0L"/>
+                                    <include reference="tg0-yE-Exk"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="30" y="332.5" width="606" height="35"/>
+                            </variation>
+                            <connections>
+                                <action selector="clickedMessageTeacher:" destination="-1" eventType="touchUpInside" id="k9a-YX-Wrn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cV1-4O-gO7">
+                            <rect key="frame" x="26" y="332" width="322" height="53"/>
+                            <color key="backgroundColor" red="0.52421662950000003" green="0.090412196819999999" blue="0.95697115379999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="jc2-bx-QIy"/>
+                                <constraint firstAttribute="height" constant="60" id="kq7-Si-BEa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
+                            <state key="normal" title="Schedule">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="jc2-bx-QIy"/>
+                                    <exclude reference="kq7-Si-BEa"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="jc2-bx-QIy"/>
+                                    <include reference="kq7-Si-BEa"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                <rect key="frame" x="30" y="332.5" width="606" height="35"/>
+                            </variation>
+                            <connections>
+                                <action selector="clickedSchedule:" destination="-1" eventType="touchUpInside" id="jc8-mn-9kP"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Bqu-QX-vmG"/>
-                        <constraint firstAttribute="width" constant="250" id="VuX-6x-bc7"/>
+                        <constraint firstItem="sM7-55-GoQ" firstAttribute="centerX" secondItem="dwi-ry-xTf" secondAttribute="centerX" id="0T5-Xb-kCj"/>
+                        <constraint firstItem="sM7-55-GoQ" firstAttribute="centerX" secondItem="W29-8R-ivV" secondAttribute="centerX" id="6bC-KU-2kP"/>
+                        <constraint firstItem="sM7-55-GoQ" firstAttribute="trailing" secondItem="dwi-ry-xTf" secondAttribute="trailingMargin" id="6iT-yr-aZY"/>
+                        <constraint firstItem="apB-pa-2fw" firstAttribute="top" secondItem="cu5-ce-f6z" secondAttribute="bottom" constant="27" id="Dhq-yX-aMZ"/>
+                        <constraint firstItem="sM7-55-GoQ" firstAttribute="leading" secondItem="dwi-ry-xTf" secondAttribute="leadingMargin" id="FAx-Aw-FxF"/>
+                        <constraint firstItem="W29-8R-ivV" firstAttribute="top" secondItem="sM7-55-GoQ" secondAttribute="bottom" constant="42" id="Fch-1c-aH2"/>
+                        <constraint firstItem="apB-pa-2fw" firstAttribute="leading" secondItem="cV1-4O-gO7" secondAttribute="leading" id="L5d-lH-yco"/>
+                        <constraint firstItem="8os-Id-csd" firstAttribute="leading" secondItem="cu5-ce-f6z" secondAttribute="leading" id="P1c-qF-OLL"/>
+                        <constraint firstItem="W29-8R-ivV" firstAttribute="top" secondItem="sM7-55-GoQ" secondAttribute="bottom" constant="42" id="Ve2-ds-nHf"/>
+                        <constraint firstAttribute="bottom" secondItem="cV1-4O-gO7" secondAttribute="bottom" constant="193" id="fsy-gS-iNp"/>
+                        <constraint firstItem="cV1-4O-gO7" firstAttribute="top" secondItem="apB-pa-2fw" secondAttribute="bottom" constant="27" id="mAK-jU-Awx"/>
+                        <constraint firstItem="apB-pa-2fw" firstAttribute="centerX" secondItem="cu5-ce-f6z" secondAttribute="centerX" id="moR-Dk-jqT"/>
+                        <constraint firstItem="sM7-55-GoQ" firstAttribute="top" secondItem="dwi-ry-xTf" secondAttribute="top" constant="47" id="nl8-Vh-vpv"/>
+                        <constraint firstItem="8os-Id-csd" firstAttribute="top" secondItem="W29-8R-ivV" secondAttribute="bottom" constant="42" id="xIT-gr-Qed"/>
+                        <constraint firstItem="cu5-ce-f6z" firstAttribute="top" secondItem="8os-Id-csd" secondAttribute="bottom" constant="27" id="xoy-Lx-bRa"/>
+                        <constraint firstItem="8os-Id-csd" firstAttribute="leading" secondItem="W29-8R-ivV" secondAttribute="leading" id="z1v-zm-Lv7"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
-                    <state key="normal" title="Bully Alert">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
                     <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="sM7-55-GoQ"/>
+                            <exclude reference="W29-8R-ivV"/>
+                            <exclude reference="8os-Id-csd"/>
+                            <exclude reference="cu5-ce-f6z"/>
+                            <exclude reference="apB-pa-2fw"/>
+                            <exclude reference="cV1-4O-gO7"/>
+                        </mask>
                         <mask key="constraints">
-                            <exclude reference="Bqu-QX-vmG"/>
-                            <exclude reference="VuX-6x-bc7"/>
+                            <exclude reference="0T5-Xb-kCj"/>
+                            <exclude reference="6bC-KU-2kP"/>
+                            <exclude reference="6iT-yr-aZY"/>
+                            <exclude reference="FAx-Aw-FxF"/>
+                            <exclude reference="nl8-Vh-vpv"/>
+                            <exclude reference="Fch-1c-aH2"/>
+                            <exclude reference="Ve2-ds-nHf"/>
+                            <exclude reference="P1c-qF-OLL"/>
+                            <exclude reference="xIT-gr-Qed"/>
+                            <exclude reference="z1v-zm-Lv7"/>
+                            <exclude reference="xoy-Lx-bRa"/>
+                            <exclude reference="Dhq-yX-aMZ"/>
+                            <exclude reference="L5d-lH-yco"/>
+                            <exclude reference="moR-Dk-jqT"/>
+                            <exclude reference="fsy-gS-iNp"/>
+                            <exclude reference="mAK-jU-Awx"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="sM7-55-GoQ"/>
+                            <include reference="W29-8R-ivV"/>
+                            <include reference="8os-Id-csd"/>
+                            <include reference="cu5-ce-f6z"/>
+                            <include reference="apB-pa-2fw"/>
+                            <include reference="cV1-4O-gO7"/>
+                        </mask>
                         <mask key="constraints">
-                            <include reference="Bqu-QX-vmG"/>
-                            <include reference="VuX-6x-bc7"/>
+                            <include reference="0T5-Xb-kCj"/>
+                            <include reference="6bC-KU-2kP"/>
+                            <include reference="6iT-yr-aZY"/>
+                            <include reference="FAx-Aw-FxF"/>
+                            <include reference="nl8-Vh-vpv"/>
+                            <include reference="Fch-1c-aH2"/>
+                            <include reference="Ve2-ds-nHf"/>
+                            <include reference="P1c-qF-OLL"/>
+                            <include reference="xIT-gr-Qed"/>
+                            <include reference="z1v-zm-Lv7"/>
+                            <include reference="xoy-Lx-bRa"/>
+                            <include reference="Dhq-yX-aMZ"/>
+                            <include reference="L5d-lH-yco"/>
+                            <include reference="moR-Dk-jqT"/>
+                            <include reference="fsy-gS-iNp"/>
+                            <include reference="mAK-jU-Awx"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                        <rect key="frame" x="30" y="332.5" width="606" height="35"/>
-                    </variation>
-                    <connections>
-                        <action selector="clickedBullyAlert:" destination="-1" eventType="touchUpInside" id="D4m-wd-C5P"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8k-84-YDm">
-                    <rect key="frame" x="26" y="332" width="322" height="53"/>
-                    <color key="backgroundColor" red="0.12850480750000001" green="0.76889347789999996" blue="0.37209143589999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="250" id="KLs-cn-7QE"/>
-                        <constraint firstAttribute="height" constant="60" id="gPU-0v-Ok9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
-                    <state key="normal" title="I need to share">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="KLs-cn-7QE"/>
-                            <exclude reference="gPU-0v-Ok9"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="KLs-cn-7QE"/>
-                            <include reference="gPU-0v-Ok9"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                        <rect key="frame" x="30" y="332.5" width="606" height="35"/>
-                    </variation>
-                    <connections>
-                        <action selector="clickedNeedToShare:" destination="-1" eventType="touchUpInside" id="6Mw-bC-QzT"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyb-KN-IRh">
-                    <rect key="frame" x="26" y="332" width="322" height="53"/>
-                    <color key="backgroundColor" red="0.95697115379999997" green="0.92051148169999997" blue="0.070565344000000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="AhX-lU-cIB"/>
-                        <constraint firstAttribute="width" constant="250" id="nFH-gY-myc"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
-                    <state key="normal" title="Refer a friend">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="AhX-lU-cIB"/>
-                            <exclude reference="nFH-gY-myc"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="AhX-lU-cIB"/>
-                            <include reference="nFH-gY-myc"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                        <rect key="frame" x="30" y="332.5" width="606" height="35"/>
-                    </variation>
-                    <connections>
-                        <action selector="clickedReferA:" destination="-1" eventType="touchUpInside" id="Bub-aW-Ad1"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m01-bJ-wob">
-                    <rect key="frame" x="26" y="332" width="322" height="53"/>
-                    <color key="backgroundColor" red="0.14200394180000001" green="0.1970562293" blue="0.95697115379999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="RIc-IE-AA1"/>
-                        <constraint firstAttribute="width" constant="300" id="g6I-NC-FiD"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
-                    <state key="normal" title="Message Teacher">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="RIc-IE-AA1"/>
-                            <exclude reference="g6I-NC-FiD"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="RIc-IE-AA1"/>
-                            <include reference="g6I-NC-FiD"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                        <rect key="frame" x="30" y="332.5" width="606" height="35"/>
-                    </variation>
-                    <connections>
-                        <action selector="clickedMessageTeacher:" destination="-1" eventType="touchUpInside" id="49L-YA-563"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjZ-4h-63z">
-                    <rect key="frame" x="26" y="332" width="322" height="53"/>
-                    <color key="backgroundColor" red="0.52421662950000003" green="0.090412196819999999" blue="0.95697115379999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="XsJ-PM-Lfu"/>
-                        <constraint firstAttribute="height" constant="60" id="i9E-wM-Nar"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="YanoneKaffeesatz-Regular" family="Yanone Kaffeesatz" pointSize="27"/>
-                    <state key="normal" title="Schedule">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="XsJ-PM-Lfu"/>
-                            <exclude reference="i9E-wM-Nar"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="XsJ-PM-Lfu"/>
-                            <include reference="i9E-wM-Nar"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                        <rect key="frame" x="30" y="332.5" width="606" height="35"/>
-                    </variation>
-                    <connections>
-                        <action selector="clickedSchedule:" destination="-1" eventType="touchUpInside" id="yfV-g2-zMb"/>
-                    </connections>
-                </button>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="m01-bJ-wob" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5pd-RX-vZR"/>
-                <constraint firstItem="Yyb-KN-IRh" firstAttribute="top" secondItem="h8k-84-YDm" secondAttribute="bottom" constant="27" id="8kt-jK-mXc"/>
-                <constraint firstItem="LjZ-4h-63z" firstAttribute="top" secondItem="m01-bJ-wob" secondAttribute="bottom" constant="27" id="EH7-Tn-49H"/>
-                <constraint firstItem="m01-bJ-wob" firstAttribute="top" secondItem="Yyb-KN-IRh" secondAttribute="bottom" constant="27" id="Hdu-vE-jI1"/>
-                <constraint firstItem="OFO-Zi-GeN" firstAttribute="top" secondItem="Fsw-g5-Q9I" secondAttribute="bottom" constant="42" id="R5y-VX-L7R"/>
-                <constraint firstAttribute="trailing" secondItem="Fsw-g5-Q9I" secondAttribute="trailing" constant="8" id="RxM-Ex-cig"/>
-                <constraint firstItem="h8k-84-YDm" firstAttribute="top" secondItem="OFO-Zi-GeN" secondAttribute="bottom" constant="42" id="Sjl-zC-vDa"/>
-                <constraint firstItem="OFO-Zi-GeN" firstAttribute="top" secondItem="Fsw-g5-Q9I" secondAttribute="bottom" constant="42" id="Tm7-tg-mOs"/>
-                <constraint firstItem="LjZ-4h-63z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="arg-8f-Y1H"/>
-                <constraint firstItem="Fsw-g5-Q9I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="i7y-bo-lhz"/>
-                <constraint firstItem="Yyb-KN-IRh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="n04-tF-ijc"/>
-                <constraint firstItem="h8k-84-YDm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nEb-zG-PJU"/>
-                <constraint firstItem="OFO-Zi-GeN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oCK-Gy-3nF"/>
-                <constraint firstItem="Fsw-g5-Q9I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="w9h-XW-YxL"/>
-                <constraint firstItem="Fsw-g5-Q9I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="zfb-Zj-cdE"/>
+                <constraint firstAttribute="trailing" secondItem="dwi-ry-xTf" secondAttribute="trailing" id="QuT-ny-Yee"/>
+                <constraint firstAttribute="bottom" secondItem="dwi-ry-xTf" secondAttribute="bottom" id="aix-mk-oW7"/>
+                <constraint firstItem="dwi-ry-xTf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="buk-ck-3GR"/>
+                <constraint firstItem="dwi-ry-xTf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s2K-Yd-CDA"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="Fsw-g5-Q9I"/>
-                    <exclude reference="OFO-Zi-GeN"/>
-                    <exclude reference="h8k-84-YDm"/>
-                    <exclude reference="Yyb-KN-IRh"/>
-                    <exclude reference="m01-bJ-wob"/>
-                    <exclude reference="LjZ-4h-63z"/>
+                    <exclude reference="dwi-ry-xTf"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="RxM-Ex-cig"/>
-                    <exclude reference="i7y-bo-lhz"/>
-                    <exclude reference="w9h-XW-YxL"/>
-                    <exclude reference="zfb-Zj-cdE"/>
-                    <exclude reference="R5y-VX-L7R"/>
-                    <exclude reference="Tm7-tg-mOs"/>
-                    <exclude reference="oCK-Gy-3nF"/>
-                    <exclude reference="Sjl-zC-vDa"/>
-                    <exclude reference="nEb-zG-PJU"/>
-                    <exclude reference="8kt-jK-mXc"/>
-                    <exclude reference="n04-tF-ijc"/>
-                    <exclude reference="5pd-RX-vZR"/>
-                    <exclude reference="Hdu-vE-jI1"/>
-                    <exclude reference="EH7-Tn-49H"/>
-                    <exclude reference="arg-8f-Y1H"/>
+                    <exclude reference="QuT-ny-Yee"/>
+                    <exclude reference="aix-mk-oW7"/>
+                    <exclude reference="buk-ck-3GR"/>
+                    <exclude reference="s2K-Yd-CDA"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
-                    <include reference="Fsw-g5-Q9I"/>
-                    <include reference="OFO-Zi-GeN"/>
-                    <include reference="h8k-84-YDm"/>
-                    <include reference="Yyb-KN-IRh"/>
-                    <include reference="m01-bJ-wob"/>
-                    <include reference="LjZ-4h-63z"/>
+                    <include reference="dwi-ry-xTf"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="RxM-Ex-cig"/>
-                    <include reference="i7y-bo-lhz"/>
-                    <include reference="w9h-XW-YxL"/>
-                    <include reference="zfb-Zj-cdE"/>
-                    <include reference="R5y-VX-L7R"/>
-                    <include reference="Tm7-tg-mOs"/>
-                    <include reference="oCK-Gy-3nF"/>
-                    <include reference="Sjl-zC-vDa"/>
-                    <include reference="nEb-zG-PJU"/>
-                    <include reference="8kt-jK-mXc"/>
-                    <include reference="n04-tF-ijc"/>
-                    <include reference="5pd-RX-vZR"/>
-                    <include reference="Hdu-vE-jI1"/>
-                    <include reference="EH7-Tn-49H"/>
-                    <include reference="arg-8f-Y1H"/>
+                    <include reference="QuT-ny-Yee"/>
+                    <include reference="aix-mk-oW7"/>
+                    <include reference="buk-ck-3GR"/>
+                    <include reference="s2K-Yd-CDA"/>
                 </mask>
             </variation>
         </view>

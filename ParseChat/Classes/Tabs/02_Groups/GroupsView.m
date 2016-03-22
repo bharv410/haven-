@@ -49,6 +49,7 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidLoad];
+    [self hideBottom];
 	self.title = @"Groups";
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
@@ -69,8 +70,19 @@
 	if ([PFUser currentUser] != nil)
 	{
 		[self loadGroups];
+        [self hideBottom];
+        
 	}
 	else LoginUser(self);
+}
+
+- (void) hideBottom {
+
+    CGRect fullScreen = [[UIScreen mainScreen] bounds];
+    self.tabBarController.tabBar.hidden=YES;
+    [self setExtendedLayoutIncludesOpaqueBars:YES];
+    
+    [[self.tabBarController.view.subviews objectAtIndex:0]setFrame:fullScreen];
 }
 
 #pragma mark - Backend actions
@@ -80,7 +92,6 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	PFQuery *query = [PFQuery queryWithClassName:PF_GROUP_CLASS_NAME];
-	[query whereKey:PF_GROUP_MEMBERS equalTo:[PFUser currentId]];
 	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
 	{
 		if (error == nil)

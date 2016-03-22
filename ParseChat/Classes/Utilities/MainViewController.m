@@ -30,17 +30,18 @@
 -(void) viewWillAppear:(BOOL)animated{
     if ([PFUser currentUser] != nil)
     {
-        
-        [[self navigationController] setNavigationBarHidden:YES animated:YES];
-        CGRect fullScreen = [[UIScreen mainScreen] bounds];
-        self.tabBarController.tabBar.hidden=YES;
-        [self setExtendedLayoutIncludesOpaqueBars:YES];
-        
-        [[self.tabBarController.view.subviews objectAtIndex:0]setFrame:fullScreen];
-        
-        
+        [self hideBottom];
     }
     else LoginUser(self);
+}
+
+- (void) hideBottom {
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    CGRect fullScreen = [[UIScreen mainScreen] bounds];
+    self.tabBarController.tabBar.hidden=YES;
+    [self setExtendedLayoutIncludesOpaqueBars:YES];
+    
+    [[self.tabBarController.view.subviews objectAtIndex:0]setFrame:fullScreen];
 }
 
 -(void) viewWillDisappear:(BOOL)animated
@@ -92,14 +93,51 @@
 }
 
 - (IBAction)clickedNeedToShare:(UIButton *)sender {
-    [self goToMsAnderson];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Share Public or Private?"
+                                                    message:@"Choose below"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Private"
+                                          otherButtonTitles:@"Public",nil];
+    [alert show];
+
+    
+    
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self goToMsAnderson];
+    }
+    else if (buttonIndex == 1) {
+        
+        NSMutableArray *names = [[NSMutableArray alloc]init];
+        [names addObject:@"firstglobal"];
+        PFQuery * pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"channels" containedIn:names];
+        NSString * alert = [NSString stringWithFormat:@"Public message from %@!", [PFUser currentUser].username];
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                              alert, @"alert",
+                              @"default", @"sound",
+                              @"Increment", @"badge",
+                              nil]; [PFPush sendPushDataToQueryInBackground:pushQuery withData:data block:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                
+            }
+            else {
+            } }];
+        
+        
+        GroupsView *gv = [[GroupsView alloc] initWithNibName:@"GroupsView" bundle:nil];
+
+        [self.navigationController pushViewController:gv animated:YES];
+    }
+}
 - (IBAction)clickedReferA:(UIButton *)sender {
     if([MFMessageComposeViewController canSendText]) {
         MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-        controller.body = @"Hello";
-        controller.recipients = [NSArray arrayWithObjects:@"+1234567890", nil];
+        controller.body = @"Hey, I'm worried about you. Add Haven to connect with Ms. Anderson and to meet others who feel like you do. It is anyonoymous.";
+        controller.recipients = [NSArray arrayWithObjects:@"+Enter Phone Number", nil];
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:nil];
     }

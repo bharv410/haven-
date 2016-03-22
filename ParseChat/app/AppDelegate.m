@@ -126,9 +126,11 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-	[currentInstallation setDeviceTokenFromData:deviceToken];
-	[currentInstallation saveInBackground];
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[@"firstglobal"];
+    [currentInstallation saveInBackground];
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
