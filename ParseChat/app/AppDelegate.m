@@ -19,6 +19,7 @@
 #import "common.h"
 
 #import "AppDelegate.h"
+#import "FeelingsViewController.h"
 #import "RecentView.h"
 #import "GroupsView.h"
 #import "PeopleView.h"
@@ -149,6 +150,7 @@
 	if ([PFUser currentUser] != nil)
 	{
 		[self performSelector:@selector(refreshRecentView) withObject:nil afterDelay:4.0];
+        //show the feelings controller
 	}
 }
 
@@ -156,7 +158,14 @@
 - (void)refreshRecentView
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	[self.recentView loadRecents];
+//	[self.recentView loadRecents];
+    FeelingsViewController *notificationViewController = [[FeelingsViewController alloc] init];
+    [self.mainView presentViewController:notificationViewController animated:true completion:^{
+        
+        
+    }];
+    
+
 }
 
 #pragma mark - Location manager methods

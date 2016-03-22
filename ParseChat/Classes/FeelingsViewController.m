@@ -7,6 +7,7 @@
 //
 
 #import "FeelingsViewController.h"
+#import <Parse/Parse.h>
 
 @interface FeelingsViewController ()
 
@@ -24,8 +25,36 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)positiveClick:(UIButton *)sender {
+
+    PFObject *gameScore = [PFObject objectWithClassName:@"Feelings"];
+    PFUser *currentUser = [PFUser currentUser];
+    gameScore[@"user"] = currentUser[@"username"];
+    gameScore[@"feeling"] = @"Feeling good";
+    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+
 }
 - (IBAction)negativeClick:(UIButton *)sender {
+    PFObject *gameScore = [PFObject objectWithClassName:@"Feelings"];
+    PFUser *currentUser = [PFUser currentUser];
+    gameScore[@"user"] = currentUser[@"username"];
+    gameScore[@"feeling"] = @"Feeling bad";
+    [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
 }
 
 /*
